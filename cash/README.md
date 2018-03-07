@@ -26,9 +26,19 @@ User Guide
 ```
 
 For more informations you can use the commande : 
+* For help
 ```sh
 ❯ node .\index -h
 ```
+* To get the version
+```sh
+❯ node .\index -v
+```
+* To save a default currency use 2 arguments like [DefaultFrom currency] [DefaultTo currency]
+```sh
+❯ node .\index -s 
+```
+
 
 Currencies available :
 
