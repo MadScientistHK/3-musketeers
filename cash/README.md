@@ -36,7 +36,7 @@ For more informations you can use
 ```
 * To save a default currency use 2 arguments like [DefaultFrom currency] [DefaultTo currency]
 ```sh
-❯ node .\index -s 
+❯ node .\index -s FIRST_CURRENCY SECOND_CURRENCY
 ```
 
 
