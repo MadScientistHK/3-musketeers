@@ -27,7 +27,8 @@ User Guide
 
 Currencies available :
 
-* AUD: Australian Dollar * RUB: Russian Rouble
+* AUD: Australian Dollar
+* RUB: Russian Rouble
 * EUR: Euro
 * BGN: Bulgarian Lev
 * BRL: Real Brazilian
