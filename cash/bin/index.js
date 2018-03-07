@@ -10,6 +10,11 @@ const argv = process.argv.slice(2);
 
 helpers(argv);
 
+/**
+ * Convert money from a currency to another
+ * @example
+ * 150 EUR TO JPY
+ */
 const command = {
   'amount': argv[0] || 1,
   'from': argv[1] || config.get('defaultFrom', 'USD'),
