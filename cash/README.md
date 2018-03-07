@@ -25,6 +25,11 @@ User Guide
 ❯ node .\index AMOUNT FIRST_CURRENCY SECOND_CURRENCY
 ```
 
+For more informations you can use the commande : 
+```sh
+❯ node .\index -h
+```
+
 Currencies available :
 
 * AUD: Australian Dollar
