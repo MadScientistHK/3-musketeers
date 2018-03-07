@@ -1,6 +1,6 @@
 ﻿# Cash
 
-#Requierment
+# Requierment
 NodeJS installed
 
 Installation
@@ -24,8 +24,8 @@ User Guide
 ```sh
 ❯ node .\index AMOUNT FIRST_CURRENCY SECOND_CURRENCY
 ```
-
-For more informations you can use the commande : 
+For more informations you can use
+---
 * For help
 ```sh
 ❯ node .\index -h
