@@ -25,6 +25,8 @@ User Guide
 ❯ node .\index AMOUNT FIRST_CURRENCY SECOND_CURRENCY
 ```
 
+Currencies available :
+
 * AUD: Australian Dollar
 * RUB: Russian Rouble
 * EUR: Euro
