@@ -59,13 +59,14 @@ test('should convert a NaN to a String', () => {
 
 test('should not convert a NaN to a Big', () => {
   //convert(NaN, 'BTC', 'BTC', 'Big');
-  expect(convert(NaN, 'BTC', 'BTC', 'Big')).toThrow(BigError);
+  expect(() => {convert(NaN, 'BTC', 'BTC', 'Big')}).toThrow();
 });
 
 test('should handle rounding errors', () => {
   //convert(4.6, 'Satoshi', 'BTC', 'Number');
   //convert(0.000000046, 'BTC', 'Satoshi', 'Number');
-  expect(convert(2100, 'mBTC', 'BTC', 'String')).toBe("2.1");
+  expect(convert(4.6, 'Satoshi', 'BTC', 'Number')).toBe(Number(0.000000046));
+  expect(convert(0.000000046, 'BTC', 'Satoshi', 'Number')).toBe(Number(4.6));
 });
 
 test('should throw when untest is undefined', () => {
@@ -73,17 +74,34 @@ test('should throw when untest is undefined', () => {
   //convert(new Big(2), 'BTC', 'x', 'Number');
   //convert(NaN, 'x', 'BTC', 'Number');
   //convert(NaN, 'BTC', 'x', 'Number');
-  expect(convert(2100, 'mBTC', 'BTC', 'String')).toBe("2.1");
+  expect(() => {convert(new Big(2), 'x', 'BTC', 'Number')}).toThrow();
+  expect(() => {convert(new Big(2), 'BTC', 'x', 'Number')}).toThrow();
+  expect(() => {convert(NaN, 'x', 'BTC', 'Number')}).toThrow();
+  expect(() => {convert(NaN, 'BTC', 'x', 'Number')}).toThrow();
 });
 
 test('should throw when representaion is undefined', () => {
   //convert(2, 'BTC', 'mBTC', 'x');
   //convert(NaN, 'BTC', 'mBTC', 'x');
-  expect(convert(2100, 'mBTC', 'BTC', 'String')).toBe("2.1");
+  expect(() => {convert(2, 'BTC', 'mBTC', 'x')}).toThrow();
+  expect(() => {convert(NaN, 'BTC', 'mBTC', 'x')}).toThrow();
 });
 
 test('should allow untest aliases', () => {
   //convert(4.6, 'Satoshi', 'sat');
   //convert(4.6, 'μBTC', 'btest');
-  expect(convert(2100, 'mBTC', 'BTC', 'String')).toBe("2.1");
+  expect(convert(4.6, 'Satoshi', 'sat')).toBe(4.6);
+  expect(() => {convert(4.6, 'μBTC', 'btest')}).toThrow();
+});
+
+test('should add a Unit', () => {
+  convert.addUnit('GregMoney', 1.5);
+  expect(() => {convert(4.6, 'BTC', 'GregMoney')}).not.toThrow();
+  expect(() => {convert.addUnit('Satoshi', 3)}).toThrow();
+});
+
+test('should remove a Unit', () => {
+  convert.removeUnit('GregMoney');
+  expect(() => {convert(4.6, 'BTC', 'GregMoney')}).toThrow();
+  expect(() => {convert.removeUnit('BTC')}).toThrow();
 });

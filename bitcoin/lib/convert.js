@@ -24,7 +24,7 @@ function convert(from, fromUnit, toUnit, representation) {
         if (!representation || representation === 'Number') {
             return from;
         } else if (representation === 'Big') {
-            return throws BigError;
+            return new Big(from); // throws BigError;
         } else if (representation === 'String') {
             return from.toString();
         }
